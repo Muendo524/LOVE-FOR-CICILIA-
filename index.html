@@ -1,0 +1,181 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Love ❤️</title>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(to bottom, #ffe6eb, #ffc2d1);
+        font-family: Arial, sans-serif;
+        text-align: center;
+        overflow-x: hidden;
+    }
+
+    h1, h2 {
+        color: #d6336c;
+    }
+
+    .name {
+        font-size: 54px;
+        font-weight: bold;
+        color: #ff1e56;
+        animation: glow 2s infinite alternate;
+        margin-top: 10px;
+    }
+
+    @keyframes glow {
+        from { text-shadow: 0 0 5px #ff4d6d; }
+        to { text-shadow: 0 0 25px #ff1e56; }
+    }
+
+    .container {
+        margin-top: 40px;
+        padding: 15px;
+    }
+
+    img {
+        width: 90%;
+        max-width: 300px;
+        border-radius: 15px;
+    }
+
+    button {
+        padding: 12px 25px;
+        font-size: 18px;
+        border-radius: 25px;
+        border: none;
+        cursor: pointer;
+        margin: 10px;
+    }
+
+    .yes-btn {
+        background: #ff4d6d;
+        color: white;
+    }
+
+    .no-btn {
+        background: #adb5bd;
+        color: white;
+        position: absolute;
+    }
+
+    .share-btn {
+        background: #25D366;
+        color: white;
+    }
+
+    .result-container {
+        display: none;
+    }
+
+    /* 💓 Floating hearts */
+    .heart {
+        position: fixed;
+        bottom: -20px;
+        font-size: 24px;
+        animation: floatUp 6s linear infinite;
+    }
+
+    @keyframes floatUp {
+        from { transform: translateY(0); opacity: 1; }
+        to { transform: translateY(-110vh); opacity: 0; }
+    }
+
+    /* 💖 Confetti */
+    .confetti {
+        position: fixed;
+        width: 10px;
+        height: 10px;
+        animation: fall 3s linear forwards;
+    }
+
+    @keyframes fall {
+        to { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+    }
+</style>
+</head>
+
+<body>
+
+<h1>Love 💕</h1>
+
+<!-- 💌 HER NAME -->
+<div class="name">💖 CICILIA 💖</div>
+<p>You are my favorite person 💌</p>
+
+<!-- 🎵 Background Music -->
+<audio autoplay loop>
+    <source src="romantic.mp3" type="audio/mpeg">
+</audio>
+
+<div class="container" id="questionBox">
+    <!-- ❤️ LOVE GIF -->
+    <img src="https://media.tenor.com/8lH8r2GZJ7UAAAAC/love.gif" alt="Love GIF">
+
+    <h2>DO YOU LOVE ME? 💖</h2>
+
+    <button class="yes-btn" onclick="sayYes()">YES</button>
+    <button class="no-btn" id="noBtn" onmouseover="moveNo()">NO</button>
+</div>
+
+<div class="container result-container" id="resultBox">
+    <img src="https://media.tenor.com/8lH8r2GZJ7UAAAAC/love.gif" alt="Love GIF">
+
+    <h2>I KNEW IT 😍😍😍</h2>
+
+    <!-- 📲 WhatsApp Share -->
+    <button class="share-btn" onclick="shareWhatsApp()">Share on WhatsApp 💌</button>
+</div>
+
+<script>
+    function sayYes() {
+        document.getElementById("questionBox").style.display = "none";
+        document.getElementById("resultBox").style.display = "block";
+        confettiBoom();
+    }
+
+    function moveNo() {
+        let btn = document.getElementById("noBtn");
+        btn.style.left = Math.random() * 80 + "vw";
+        btn.style.top = Math.random() * 60 + "vh";
+    }
+
+    // 💓 Floating hearts
+    setInterval(() => {
+        let heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = "💓";
+        heart.style.left = Math.random() * 100 + "vw";
+        document.body.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 6000);
+    }, 400);
+
+    // 💖 Confetti explosion
+    function confettiBoom() {
+        for (let i = 0; i < 100; i++) {
+            let confetti = document.createElement("div");
+            confetti.className = "confetti";
+            confetti.style.left = Math.random() * 100 + "vw";
+            confetti.style.background =
+                `hsl(${Math.random() * 360}, 100%, 50%)`;
+            document.body.appendChild(confetti);
+
+            setTimeout(() => confetti.remove(), 3000);
+        }
+    }
+
+    // 📲 WhatsApp share
+    function shareWhatsApp() {
+        let text = encodeURIComponent(
+            "CICILIA 💖 this is a special message just for you 😍"
+        );
+        window.open("https://wa.me/?text=" + text, "_blank");
+    }
+</script>
+
+</body>
+</html>
