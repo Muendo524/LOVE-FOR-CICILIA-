@@ -62,11 +62,6 @@
         position: absolute;
     }
 
-    .share-btn {
-        background: #25D366;
-        color: white;
-    }
-
     .result-container {
         display: none;
     }
@@ -123,10 +118,8 @@
 
 <div class="container result-container" id="resultBox">
     <img src="https://media.tenor.com/8lH8r2GZJ7UAAAAC/love.gif" alt="Love GIF">
-
-    <h2>I KNEW IT 😍😍😍</h2>
-
-    </div>
+    <h2>I KNEW IT I LOVE YOU TOO😍😍😍</h2>
+</div>
 
 <script>
     function sayYes() {
@@ -165,16 +158,7 @@
             setTimeout(() => confetti.remove(), 3000);
         }
     }
-
-    // 📲 WhatsApp share
-    function shareWhatsApp() {
-        let text = encodeURIComponent(
-            "CICILIA 💖 this is a special message just for you 😍"
-        );
-        window.open("https://wa.me/?text=" + text, "_blank");
-    }
 </script>
 
 </body>
 </html>
-
